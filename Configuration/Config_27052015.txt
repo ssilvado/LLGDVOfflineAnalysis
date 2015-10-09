@@ -1,0 +1,16 @@
+InputFile       files/ttbar/part_1.root
+InputFile       files/ttbar/part_2.root
+InputFile       files/ttbar/part_3.root
+InputFile       files/ttbar/part_4.root
+InputFile       files/ttbar/part_5.root
+InputTree       RecoData
+JET_PT_CUT_SV   30
+JET_PT_CUT_PV   75
+JET_ETA_CUT     2.4
+MUON_PT_CUT     15
+ELECTRON_PT_CUT 15
+MET_CUT         210
+PROC_XSEC       832.
+PROC_NTOT       25446993
+TARGET_LUMI     1000.
+ApplyEventWeights 1

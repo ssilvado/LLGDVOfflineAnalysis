@@ -1,0 +1,24 @@
+#!/bin/bash
+./RunAnalysis Configuration/ConfigSpring15_DrellYan.txt >& dy.txt &
+./RunAnalysis Configuration/ConfigSpring15_QCD15to30.txt >& qcd15to30.txt &
+./RunAnalysis Configuration/ConfigSpring15_QCD30to50.txt >& qcd30to50.txt &
+./RunAnalysis Configuration/ConfigSpring15_QCD50to80.txt >& qcd50to80.txt &
+./RunAnalysis Configuration/ConfigSpring15_QCD80to120.txt >& qcd80to120.txt &
+./RunAnalysis Configuration/ConfigSpring15_QCD120to170.txt >& qcd120to170.txt &
+./RunAnalysis Configuration/ConfigSpring15_QCD170to300.txt >& qcd170to300.txt &
+./RunAnalysis Configuration/ConfigSpring15_QCD300to470.txt >& qcd300to470.txt &
+./RunAnalysis Configuration/ConfigSpring15_QCD470to600.txt >& qcd470to600.txt &
+./RunAnalysis Configuration/ConfigSpring15_QCD600to800.txt >& qcd600to800.txt &
+./RunAnalysis Configuration/ConfigSpring15_QCD800to1000.txt >& qcd800to1000.txt &
+./RunAnalysis Configuration/ConfigSpring15_QCD1000to1400.txt >& qcd1000to1400.txt &
+./RunAnalysis Configuration/ConfigSpring15_QCD1400to1800.txt >& qcd1400to1800.txt &
+./RunAnalysis Configuration/ConfigSpring15_QCD1800to2400.txt >& qcd1800to2400.txt &
+./RunAnalysis Configuration/ConfigSpring15_QCD2400to3200.txt >& qcd2400to3200.txt &
+./RunAnalysis Configuration/ConfigSpring15_QCD3200toInf.txt >& qcd3200toInf.txt &
+./RunAnalysis Configuration/ConfigSpring15_Signal_750_80.txt >& signal_750_80.txt &
+./RunAnalysis Configuration/ConfigSpring15_TTbar.txt >& ttbar.txt &
+./RunAnalysis Configuration/ConfigSpring15_WJets.txt >& wjets.txt &
+./RunAnalysis Configuration/ConfigSpring15_ZJetsHT100-200.txt >& zjets100-200.txt &
+./RunAnalysis Configuration/ConfigSpring15_ZJetsHT200-400.txt >& zjets200-400.txt &
+./RunAnalysis Configuration/ConfigSpring15_ZJetsHT400-600.txt >& zjets400-600.txt &
+./RunAnalysis Configuration/ConfigSpring15_ZJetsHT600-Inf.txt >& zjets600-Inf.txt &

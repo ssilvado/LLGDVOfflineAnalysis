@@ -1,0 +1,15 @@
+InputTree       RecoData
+DatasetName     QCD_Pt_50to80_TuneCUETP8M1_13TeV_pythia8
+JET_PT_CUT_SV   30
+JET_PT_CUT_PV   150
+JET_ETA_CUT     2.4
+MUON_PT_CUT     15
+ELECTRON_PT_CUT 15
+MJJ_CUT         60
+LEADING_SV_JET_CUT 10000
+MET_CUT         21
+TARGET_LUMI     1000.
+MetadataFileName Configuration/DatasetMetadata.txt
+ApplyEventWeights 1
+SELECTION       TTJetsCR
+InputFile       /afs/cern.ch/user/m/mhamer/work/public/LLGDVFiles_Spring15/v0.4/QCD_Pt_50to80_TuneCUETP8M1_13TeV_pythia8/crab_LLGDV_Analysis_QCD_Pt50to80.root
