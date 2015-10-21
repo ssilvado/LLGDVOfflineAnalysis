@@ -7,8 +7,8 @@ void LLGAnalysis::SetupTTJetsCR() {
     _cutFlow.insert(pair<string,int>("0_NoCut", 0) );
     _cutFlow.insert(pair<string,int>("1_Trigger", 0) );
     _cutFlow.insert(pair<string,int>("2_AtLeastOneLepton", 0) );
-    _cutFlow.insert(pair<string,int>("3_NJets", 0) );
-    _cutFlow.insert(pair<string,int>("4_MET", 0) );
+    _cutFlow.insert(pair<string,int>("3_MET", 0) );
+    _cutFlow.insert(pair<string,int>("4_NJets", 0) );
     _cutFlow.insert(pair<string,int>("5_NBJets_CSVv2L", 0) );
     _cutFlow.insert(pair<string,int>("5_NBJets_CSVv2M", 0) );
     _cutFlow.insert(pair<string,int>("5_NBJets_CSVv2T", 0) );
@@ -65,6 +65,7 @@ void LLGAnalysis::TTJetsCRSelection() {
     	bool passTrigger = false;
     	for( unsigned int iTrig = 0; iTrig < triggerNames->size(); ++iTrig ) {
         	if( triggerNames->at(iTrig) == "HLT_PFMET170_NoiseCleaned_v1" && triggerBits->at(iTrig) == 1 ) passTrigger = true;
+        	//if( (triggerNames->at(iTrig) == "HLT_PFJet260_v1" || triggerNames->at(iTrig) == "HLT_PFMET170_NoiseCleaned_v1") && triggerBits->at(iTrig) == 1 ) passTrigger = true;
         }
 
     	if( !passTrigger ) return; 
@@ -81,34 +82,28 @@ void LLGAnalysis::TTJetsCRSelection() {
         
         //_outputTree->Fill();
     
-        // lepton veto:
-        bool hasMuon = false;
-        if( vetoMuons.size() > 0 ) hasMuon = true;
-        
-        bool hasElectron = false;
-        if( vetoElectrons.size() > 0 ) hasElectron = true;
-        
-        if( !hasMuon && !hasElectron ) return;
+        // lepton:
+        if( (vetoMuons.size() + vetoElectrons.size()) < 1 ) return;
         
         _cutFlow.at("2_AtLeastOneLepton") += 1;
 
         _histograms1D.at("AtLeastOneLepton_met").Fill(met, evtWeight );
         _histograms1D.at("AtLeastOneLepton_nJet").Fill(nJets, evtWeight );
         
-        if ( nJets >= 2 ) { 
-        	
-        _cutFlow.at("3_NJets") += 1;
-        
-        _histograms1D.at("NJets_nJet").Fill(nJets, evtWeight );
-        _histograms1D.at("NJets_met").Fill(met, evtWeight );
-       
-        	//MET cut
-        	if( met > MET_CUT ) {
+        //MET cut
+        if( met > MET_CUT ) {
                 
-        		_cutFlow.at("4_MET") += 1;
+        	_cutFlow.at("3_MET") += 1;
         			
-        		_histograms1D.at("MET_nJet").Fill(nJets, evtWeight );
-        		_histograms1D.at("MET_met").Fill(met, evtWeight );       
+        	_histograms1D.at("MET_nJet").Fill(nJets, evtWeight );
+        	_histograms1D.at("MET_met").Fill(met, evtWeight ); 
+        
+        	if ( nJets >= 2 ) { 
+        	
+        		_cutFlow.at("4_NJets") += 1;
+        
+        		_histograms1D.at("NJets_nJet").Fill(nJets, evtWeight );
+        		_histograms1D.at("NJets_met").Fill(met, evtWeight );
 
         		int nBjets_CSVv2L = 0;
         		int nBjets_CSVv2M = 0;
